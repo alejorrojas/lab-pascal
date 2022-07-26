@@ -54,17 +54,64 @@ procedure Inicializar();
   resTransp:= regPaquete.Prot_Transp;
 end;
 
-procedure CorteRed();
-  begin
-    writeLn('entre al red');
-  end;
 procedure CorteTransp();
   begin
-    writeLn('entre al transp');
+    writeLn('Total de paquetes salientes a los protocolos web, ftp y smtp del protocolo de transporte: ', resTransp, ', de la red: ', resRed);
+		writeLn('web: ', contWeb);
+		writeLn('ftp: ', contFtp);
+		writeLn('smtp: ', contSmtp);
+
+			redWeb:= redWeb + contWeb;
+			redFtp:= redFtp + contFtp;
+			redSmtp:= redSmtp + contSmtp;
+
+			contWeb:= 0 ;
+			contFtp:= 0; 
+			contSmtp:= 0 ;
+
+			resTransp:= regPaquete.Prot_Transp;
   end;
-procedure ProtocoloSeguridad();
+
+
+procedure CorteRed();
   begin
-    writeLn('te escaneo loco');
+    CorteTransp();
+    writeLn('Total de paquetes salientes a los protocoles web, ftp y smtp de la red: ', resRed);
+		writeLn('web: ', redWeb);
+		writeLn('ftp: ', redFtp);
+		writeLn('smtp: ', redSmtp);
+
+    totalWeb:= totalWeb +  redWeb;
+    totalFtp:= totalFtp +  redFtp;
+    totalSmtp:= totalSmtp +  redSmtp;
+		redWeb:= 0 ;
+    redFtp:= 0 ;
+    redSmtp:= 0 ;
+
+		resRed:= regPaquete.Prot_Red;
+  end;
+
+procedure ProtocoloSeguridad();
+  Var
+    respuesta: char;
+  begin
+    writeLn('Dado que el paquete entrante pertenece a uno de los procotolos web, ftp o smtp se activo el protocolo de seguridad ante ataques');
+		writeLn('Desea escanear el contenido del registro antes de seguir? S / N');
+		readLn(respuesta);
+    if respuesta = 'S' then
+      begin
+        writeLn(regPaquete.Prot_Red);
+        writeLn(regPaquete.Prot_Transp);
+        writeLn(regPaquete.Puerto_Origen);
+        writeLn(regPaquete.Puerto_Destino);
+        writeLn(regPaquete.IPOrigen);
+        writeLn(regPaquete.IPDestino);
+      end
+    else if respuesta = 'N' then 
+      begin
+        writeLn('OK');
+      end;
+
   end;
 
 Begin
@@ -85,10 +132,17 @@ Begin
       end;
 
       case regPaquete.Puerto_Origen of
-        21: ProtocoloSeguridad();
-      end; 
+         21: ProtocoloSeguridad();
+         25: ProtocoloSeguridad();
+         80: ProtocoloSeguridad();
+      end;
 
      read(LAN_TRAFFIC, regPaquete); 
    end; 
+   CorteRed();
+   writeLn('Los totales generales de este archivo son: ');
+   writeLn('web: ', totalWeb);
+	 writeLn('ftp: ', totalFtp);
+	 writeLn('smtp: ', totalSmtp);
    close(LAN_TRAFFIC); 
 End.

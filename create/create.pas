@@ -38,7 +38,7 @@ Begin
   begin 
     Prot_Red:= 1;
 	Prot_Transp:= 1;
-	Puerto_Origen:=  65;
+	Puerto_Origen:=  695;
 	Puerto_Destino:=  535;
 	Horario.hora:= 15;
 	Horario.minutos:= 30;
@@ -54,7 +54,7 @@ Begin
   begin 
     Prot_Red:= 1;
 	Prot_Transp:= 1;
-	Puerto_Origen:=  21;
+	Puerto_Origen:=  853;
 	Puerto_Destino:=  80;
 	Horario.hora:= 15;
 	Horario.minutos:= 30;
@@ -70,7 +70,7 @@ Begin
   begin 
     Prot_Red:= 1;
 	Prot_Transp:= 1;
-	Puerto_Origen:=  25;
+	Puerto_Origen:=  988;
 	Puerto_Destino:=  80;
 	Horario.hora:= 15;
 	Horario.minutos:= 30;
@@ -86,7 +86,7 @@ Begin
   begin 
     Prot_Red:= 1;
 	Prot_Transp:= 1;
-	Puerto_Origen:=  21;
+	Puerto_Origen:=  100;
 	Puerto_Destino:=  80;
 	Horario.hora:= 15;
 	Horario.minutos:= 30;
@@ -118,7 +118,7 @@ Begin
   begin 
     Prot_Red:= 1;
 	Prot_Transp:= 2;
-	Puerto_Origen:=  65;
+	Puerto_Origen:=  200;
 	Puerto_Destino:=  25;
 	Horario.hora:= 15;
 	Horario.minutos:= 30;
@@ -134,7 +134,7 @@ Begin
   begin 
     Prot_Red:= 2;
 	Prot_Transp:= 1;
-	Puerto_Origen:=  21;
+	Puerto_Origen:=  4;
 	Puerto_Destino:=  80;
 	Horario.hora:= 15;
 	Horario.minutos:= 30;
@@ -150,7 +150,7 @@ Begin
   begin 
     Prot_Red:= 2;
 	Prot_Transp:= 1;
-	Puerto_Origen:=  80;
+	Puerto_Origen:=  888;
 	Puerto_Destino:=  80;
 	Horario.hora:= 15;
 	Horario.minutos:= 30;
@@ -166,7 +166,7 @@ Begin
   begin 
     Prot_Red:= 2;
 	Prot_Transp:= 1;
-	Puerto_Origen:=  25;
+	Puerto_Origen:=  99;
 	Puerto_Destino:=  21;
 	Horario.hora:= 15;
 	Horario.minutos:= 30;
@@ -214,7 +214,7 @@ Begin
   begin 
     Prot_Red:= 3;
 	Prot_Transp:= 1;
-	Puerto_Origen:=  21;
+	Puerto_Origen:=  555;
 	Puerto_Destino:=  80;
 	Horario.hora:= 15;
 	Horario.minutos:= 30;
@@ -230,7 +230,7 @@ Begin
   begin 
     Prot_Red:= 3;
 	Prot_Transp:= 1;
-	Puerto_Origen:=  80;
+	Puerto_Origen:=  333;
 	Puerto_Destino:=  21;
 	Horario.hora:= 15;
 	Horario.minutos:= 30;
@@ -246,7 +246,7 @@ Begin
   begin 
     Prot_Red:= 3;
 	Prot_Transp:= 1;
-	Puerto_Origen:=  21;
+	Puerto_Origen:=  128;
 	Puerto_Destino:=  25;
 	Horario.hora:= 15;
 	Horario.minutos:= 30;
@@ -278,7 +278,7 @@ Begin
   begin 
     Prot_Red:= 3;
 	Prot_Transp:= 2;
-	Puerto_Origen:=  25;
+	Puerto_Origen:=  9;
 	Puerto_Destino:=  21;
 	Horario.hora:= 15;
 	Horario.minutos:= 30;
