@@ -100,12 +100,12 @@ procedure ProtocoloSeguridad();
 		readLn(respuesta);
     if respuesta = 'S' then
       begin
-        writeLn(regPaquete.Prot_Red);
-        writeLn(regPaquete.Prot_Transp);
-        writeLn(regPaquete.Puerto_Origen);
-        writeLn(regPaquete.Puerto_Destino);
-        writeLn(regPaquete.IPOrigen);
-        writeLn(regPaquete.IPDestino);
+        writeLn('Red: ',regPaquete.Prot_Red);
+        writeLn('Protocolo de transporte: ',regPaquete.Prot_Transp);
+        writeLn('Puerto origen: ',regPaquete.Puerto_Origen);
+        writeLn('Puerto destino: ',regPaquete.Puerto_Destino);
+        writeLn('IP orgien: ',regPaquete.IPOrigen);
+        writeLn('IP destino: ',regPaquete.IPDestino);
       end
     else if respuesta = 'N' then 
       begin

@@ -13,7 +13,7 @@ mencionados?)
 web(80),ftp(21) y smtp(25).Indicando que existe una posibilidad de escaneo para
 ataques. Imprimir todos los datos del registro.
 
-Accion Pascual es 
+Accion Pascal es 
 	Ambiente 
 		Fecha = registro
 			dia: N(2)
@@ -46,7 +46,8 @@ Accion Pascual es
 		resRed: 1..3
 		resTransp: 1..2
 		contWeb, contFtp, contSmtp: N(6)
-	    generaltWeb, generalFtp, generalSmtp: N(6)
+		redWeb, redFtp, redSmtp: N(4);
+		totalWeb, totalFtp, totalSmtp: N(4);
 		
 
 		Procedimiento Inicializar() es
@@ -54,9 +55,12 @@ Accion Pascual es
 			contWeb:= 0 
 			contFtp:= 0 
 			contSmtp:= 0 
-			generalWeb:= 0 
-			generalFtp:= 0 
-			generalSmtp:= 0 
+			redWeb:= 0 
+			redFtp:= 0 
+			redSmtp:= 0 
+			totalWeb:= 0 
+			totalFtp:= 0 
+			totalSmtp:= 0 
 			resRed:= regPaquete.Prot_Red
 			resTransp:= regPaquete.Prot_Transp
 		finProcedimiento
@@ -64,13 +68,16 @@ Accion Pascual es
 		Procedimiento CorteRed() es
 			CorteTransp()
 			Escribir("Total de paquetes salientes a los protocoles web, ftp y smtp de la red: ", resRed)
-			Escribir("web: ", generalWeb)
-			Escribir("ftp: ", generalFtp)
-			Escribir("smtp: ", generalSmtp)
+			Escribir("web: ", redWeb)
+			Escribir("ftp: ", redSmtp)
+			Escribir("smtp: ", redSmtp)
 
-			generalWeb:= 0 
-			generalFtp:= 0 
-			generalSmtp:= 0 
+			totalWeb:= totalWeb +  redWeb
+    		totalFtp:= totalFtp +  redFtp
+    		totalSmtp:= totalSmtp +  redSmtp
+			redWeb:= 0 
+    		redFtp:= 0 
+    		redSmtp:= 0 
 
 			resRed:= regPaquete.Prot_Red
 		finProcedimiento
@@ -81,9 +88,9 @@ Accion Pascual es
 			Escribir("ftp: ", contFtp)
 			Escribir("smtp: ", contSmtp)
 
-			generalWeb:= generalWeb + contWeb
-			generalFtp:= generalFtp + contFtp
-			generalSmtp:= generalSmtp + contSmtp
+			redWeb:= redWeb + contWeb
+			redFtp:= redFtp + contFtp
+			redSmtp:= redSmtp + contSmtp
 
 			contWeb:= 0 
 			contFtp:= 0 
@@ -140,5 +147,10 @@ Accion Pascual es
 			//Avanzo
 			Leer(LAN_TRAFFIC, regPaquete)
 		finMientras
+		CorteRed()
+		Escribir("Los totales generales de este archivo son: ");
+		Escribir("web: ", totalWeb);
+		Escribir("ftp: ", totalFtp);
+		Escribir("smtp: ", totalSmtp);
 
 finAccion
