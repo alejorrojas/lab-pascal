@@ -73,22 +73,20 @@ Begin
    while not eof(LAN_TRAFFIC) do 
     begin 
       //Verifico el corte
-      // if resRed <> regPaquete.Prot_Red then
-      //   CorteRed()
-      // else if resTransp <> regPaquete.Prot_Transp then
-      //     CorteTransp();        
-      // end;
-        writeLn('entre al red');
+      if resRed <> regPaquete.Prot_Red then
+         CorteRed()
+      else if resTransp <> regPaquete.Prot_Transp then
+          CorteTransp();        
     
-      // case regPaquete.Puerto_Destino of 
-      //   21: contWeb := contWeb + 1;
-			//   80: contFtp := contFtp + 1;
-			//   25: contSmtp := contSmtp + 1;
-      // end;
+      case regPaquete.Puerto_Destino of 
+        21: contWeb := contWeb + 1;
+			  80: contFtp := contFtp + 1;
+			  25: contSmtp := contSmtp + 1;
+      end;
 
-      // case regPaquete.Puerto_Origen of
-      //   21: ProtocoloSeguridad();
-      // end; 
+      case regPaquete.Puerto_Origen of
+        21: ProtocoloSeguridad();
+      end; 
 
      read(LAN_TRAFFIC, regPaquete); 
    end; 
